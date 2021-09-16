@@ -12,4 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: mario-campos/qemulate@main
+    - uses: mario-campos/qemulate@main
+      with:
+        operating-system: openbsd-current
