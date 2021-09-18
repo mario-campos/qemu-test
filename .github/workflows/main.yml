@@ -12,6 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - run: mount
+    - run: sudo df -h
+    - run: dpkg -l
+    - run: top -bn 1 -o +%mem
     - uses: mario-campos/qemulate@main
       with:
         operating-system: openbsd-current
