@@ -12,16 +12,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: |
+    - shell: bash
+      run: |
+        echo "$@"
+        echo "==="
         for var in "$@"
         do
           echo "$var"
         done
-      shell: bash
-    - run: |
-        import sys
-        system("cat '%s'" % sys.argv[0])
-      shell: python
+    - shell: python
+      run: |
+        import os, sys
+        os.system("cat '%s'" % sys.argv[0])
     - uses: mario-campos/qemulate@main
       with:
         operating-system: openbsd-current
