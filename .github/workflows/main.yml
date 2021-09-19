@@ -12,11 +12,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo $@
+    - run: |
+        for var in "$@"
+        do
+          echo "$var"
+        done
       shell: bash
     - run: |
         import sys
-        print(sys.argv)
+        system("cat '%s'" % sys.argv[0])
       shell: python
     - uses: mario-campos/qemulate@main
       with:
