@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: mario-campos/emulate@main
       with:
-        operating-system: openbsd-6.9
+        operating-system: openbsd-6.8
     - run: |
         git clone https://github.com/mario-campos/qemu-test.git
         cd qemu-test
