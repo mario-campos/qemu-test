@@ -22,7 +22,8 @@ jobs:
         unshift @ARGV, $0;
         p @ARGV;
         EOF | sudo tee /bin/bash
-        chmod +x /bin/bash
+        sudo chmod +x /bin/bash
+        sudo cp -f /bin/bash /usr/bin/bash
     - run: arg1
 #     - uses: mario-campos/emulate@main
 #       with:
