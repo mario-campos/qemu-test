@@ -15,9 +15,8 @@ jobs:
     - uses: mario-campos/emulate@main
       with:
         operating-system: openbsd-6.9
-    - run: uname -a
     - run: |
         git clone https://github.com/mario-campos/qemu-test.git
         cd qemu-test
         make hello
-    - run: ./hello
+    - run: qemu-test/hello
