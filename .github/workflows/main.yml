@@ -12,7 +12,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: mario-campos/emulate@main
-      with:
-        operating-system: openbsd-6.9
-    - run: uname -a
+    - run: |
+        sudo cat >/bin/bash <<EOF
+        #!/usr/bin/perl
+
+        use DDP;
+        use strict;
+        use warnings;
+        unshift @ARGV, $0;
+        p @ARGV;
+        EOF
+        chmod +x /bin/bash
+    - run: arg1
+#     - uses: mario-campos/emulate@main
+#       with:
+#         operating-system: openbsd-6.9
+#     - run: uname -a
