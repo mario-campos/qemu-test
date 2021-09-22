@@ -16,11 +16,11 @@ jobs:
         cat >shell <<EOF
         #!/usr/bin/perl
 
-        use DDP;
+        use Data::Dumper;
         use strict;
         use warnings;
         unshift @ARGV, $0;
-        p @ARGV;
+        print Dumper \@ARGV;
         EOF
         
         chmod +x shell
