@@ -12,7 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: sudo apt install libstring-shellquote-perl
-#     - uses: mario-campos/emulate@main
-#       with:
-#         operating-system: openbsd-6.9
+    - uses: mario-campos/emulate@main
+      with:
+        operating-system: openbsd-6.9
