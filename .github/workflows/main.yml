@@ -24,7 +24,8 @@ jobs:
         EOF | sudo tee /bin/bash
         sudo chmod +x /bin/bash
         sudo cp -f /bin/bash /usr/bin/bash
-    - run: arg1
+        cat /bin/bash
+    - run: uname -a
 #     - uses: mario-campos/emulate@main
 #       with:
 #         operating-system: openbsd-6.9
