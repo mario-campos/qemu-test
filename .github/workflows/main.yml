@@ -12,20 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        cat >shell <<EOF
-        #!/usr/bin/perl
-
-        use strict;
-        use warnings;
-        unshift @ARGV, $0;
-        print join(", ", @ARGV);
-        EOF
-        
-        chmod +x shell
-        sudo cp -f shell /usr/bin/bash
-        sudo cp -f shell /bin/bash
-    - run: uname -a
+    - run: echo "$@"
 #     - uses: mario-campos/emulate@main
 #       with:
 #         operating-system: openbsd-6.9
