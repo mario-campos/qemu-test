@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        sudo cat >/bin/bash <<EOF
+        cat <<EOF
         #!/usr/bin/perl
 
         use DDP;
@@ -21,7 +21,7 @@ jobs:
         use warnings;
         unshift @ARGV, $0;
         p @ARGV;
-        EOF
+        EOF | sudo tee /bin/bash
         chmod +x /bin/bash
     - run: arg1
 #     - uses: mario-campos/emulate@main
