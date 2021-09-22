@@ -12,11 +12,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: mario-campos/emulate@main
-      with:
-        operating-system: openbsd-6.9
-    - run: |
-        git clone https://github.com/mario-campos/qemu-test.git
-        cd qemu-test
-        make hello
-    - run: qemu-test/hello
+    - name: kvm ok?
+      run: sudo apt install qemu-kvm qemu-utils && kvm-ok
+#     - uses: mario-campos/emulate@main
+#       with:
+#         operating-system: openbsd-6.9
+#     - run: |
+#         git clone https://github.com/mario-campos/qemu-test.git
+#         cd qemu-test
+#         make hello
+#     - run: qemu-test/hello
