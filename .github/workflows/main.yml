@@ -10,10 +10,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: kvm ok?
-      run: sudo cat /proc/meminfo
+      run: sudo brew install qemu && kvm-ok
 #     - uses: mario-campos/emulate@main
 #       with:
 #         operating-system: openbsd-6.9
