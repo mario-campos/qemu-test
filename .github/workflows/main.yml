@@ -12,8 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "$@"
-#     - uses: mario-campos/emulate@main
-#       with:
-#         operating-system: openbsd-6.9
-#     - run: uname -a
+    - uses: mario-campos/emulate@main
+      with:
+        operating-system: openbsd-6.9
+    - run: uname -a
