@@ -12,11 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - shell: bash
-      run: |
-        ls -l /bin/bash
-        ls -l /usr/bin/bash
-        ls -l /bin/python || exit 0
-        ls -l /bin/python3 || exit 0
-        ls -l /usr/bin/python || exit 0
-        ls -l /usr/bin/python3 || exit 0
+    - uses: mario-campos/emulate@main
+      with:
+        operating-system: openbsd-6.9
