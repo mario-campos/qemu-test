@@ -16,8 +16,11 @@ jobs:
 #       matrix:
 #         os: [ openbsd-6.9, netbsd-9.2 ]
     steps:
+    - run: df -h
     - run: |
-        dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -rh | head -25 | awk '{ print $1/1024, $2 }'
+        dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -rh | head -25 | cut -f 2 | sudo xargs apt-get --yes autoremove 
+        sudo apt-get clean
+    - run: df -h
 #     - uses: mario-campos/emulate@main
 #       with:
 #         operating-system: ${{ matrix.os }}
