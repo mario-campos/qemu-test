@@ -10,17 +10,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ openbsd-6.9, netbsd-9.2 ]
+    runs-on: macos-latest
     steps:
-    - uses: mario-campos/emulate@main
-      with:
-        operating-system: ${{ matrix.os }}
     - run: |
-        git clone https://github.com/mario-campos/qemu-test.git
-        cd qemu-test
-        make hello
-    - run: qemu-test/hello
+        brew install qemu libvirt vagrant
+        vagrant plugin list
+        vagrant plugin install vagrant-libvirt
