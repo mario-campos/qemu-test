@@ -12,13 +12,11 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - name: kvm ok?
-      run: brew install qemu && kvm-ok
-#     - uses: mario-campos/emulate@main
-#       with:
-#         operating-system: openbsd-6.9
-#     - run: |
-#         git clone https://github.com/mario-campos/qemu-test.git
-#         cd qemu-test
-#         make hello
-#     - run: qemu-test/hello
+    - uses: mario-campos/emulate@freebsd-12.2
+      with:
+        operating-system: freebsd-12.2
+    - run: |
+        git clone https://github.com/mario-campos/qemu-test.git
+        cd qemu-test
+        make hello
+    - run: qemu-test/hello
