@@ -11,8 +11,16 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ openbsd-6.9, netbsd-9.2 ]
     steps:
+    - uses: mario-campos/emulate@main
+      with:
+        operating-system: ${{ matrix.os }}
     - run: |
-        brew install qemu libvirt vagrant
-        vagrant plugin list
-        vagrant plugin install vagrant-libvirt
+        git clone https://github.com/mario-campos/qemu-test.git
+        cd qemu-test
+        make hello
+    - run: qemu-test/hello
