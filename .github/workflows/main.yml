@@ -11,10 +11,13 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [ openbsd-6.9, freebsd-12.2 ]
     steps:
-    - uses: mario-campos/emulate@freebsd-12.2
+    - uses: mario-campos/emulate@main
       with:
-        operating-system: freebsd-12.2
+        operating-system: ${{ matrix.os }}
     - run: |
         git clone https://github.com/mario-campos/qemu-test.git
         cd qemu-test
