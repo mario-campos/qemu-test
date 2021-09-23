@@ -11,16 +11,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ openbsd-6.9, netbsd-9.2 ]
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         os: [ openbsd-6.9, netbsd-9.2 ]
     steps:
-    - uses: mario-campos/emulate@main
-      with:
-        operating-system: ${{ matrix.os }}
     - run: |
-        git clone https://github.com/mario-campos/qemu-test.git
-        cd qemu-test
-        make hello
-    - run: qemu-test/hello
+        dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -rh | head -25 | awk '{ print $1/1024, $2 }'
+#     - uses: mario-campos/emulate@main
+#       with:
+#         operating-system: ${{ matrix.os }}
+#     - run: |
+#         git clone https://github.com/mario-campos/qemu-test.git
+#         cd qemu-test
+#         make hello
+#     - run: qemu-test/hello
