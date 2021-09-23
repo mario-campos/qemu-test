@@ -12,8 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        os: [ openbsd-6.9, freebsd-13.0, freebsd-12.2, freebsd-11.4 ]
+        os: [ openbsd-6.9, netbsd-9.2 ]
     steps:
     - uses: mario-campos/emulate@main
       with:
