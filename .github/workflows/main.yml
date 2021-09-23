@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ openbsd-6.9, freebsd-12.2 ]
+        os: [ openbsd-6.9, freebsd-13.0, freebsd-12.2, freebsd-11.4 ]
     steps:
     - uses: mario-campos/emulate@main
       with:
