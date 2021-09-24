@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ openbsd-6.9 ]
+        os: [ openbsd-6.9, freebsd-13.0, netbsd-9.2, hardenedbsd-13, dragonflybsd-6.0.0 ]
     steps:
     - run: |
         curl https://bot.whatismyipaddress.com
@@ -22,4 +22,6 @@ jobs:
     - uses: mario-campos/emulate@main
       with:
         operating-system: ${{ matrix.os }}
-    - run: uname -a && ifconfig
+    - run: |
+        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
+        cd qemu-test && make hello
