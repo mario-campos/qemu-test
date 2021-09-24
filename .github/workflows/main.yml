@@ -12,7 +12,6 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - run: dscl . list /groups ; exit 1
     - run: |
         brew install qemu libvirt
         sed -i .orig -e 's,#unix_sock_dir = "/usr/local/var/run/libvirt",unix_sock_dir = "/tmp",' /usr/local/etc/libvirt/libvirtd.conf
