@@ -16,6 +16,13 @@ jobs:
       matrix:
         os: [ openbsd-6.9, netbsd-9.2 ]
     steps:
+    - run: |
+        brew install vagrant qemu libvirt
+        brew services start libvirt
+        vagrant plugin install vagrant-libvirt
+        sudo ls -al '/usr/local/var/run/libvirt' '/var/run/libvirt'
+        sudo find / -type s
+        exit 1
     - uses: mario-campos/emulate@main
       with:
         operating-system: ${{ matrix.os }}
