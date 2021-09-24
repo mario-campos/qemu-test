@@ -14,13 +14,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ dragonflybsd-6.0.0 ]
+        os: [ openbsd-6.9 ]
     steps:
+    - run: |
+        curl https://bot.whatismyipaddress.com
+        ip addr
     - uses: mario-campos/emulate@main
       with:
         operating-system: ${{ matrix.os }}
-    - run: |
-        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
-        cd qemu-test
-        make hello
-    - run: qemu-test/hello
+    - run: ifconfig
