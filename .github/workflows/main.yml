@@ -16,7 +16,6 @@ jobs:
       matrix:
         os: [ openbsd-6.9, netbsd-9.2 ]
     steps:
-    - run: echo ${@[*]}; exit 1
     - uses: mario-campos/emulate@main
       with:
         operating-system: ${{ matrix.os }}
