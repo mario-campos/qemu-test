@@ -11,17 +11,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ netbsd-8.2, netbsd-9.2 ]
     steps:
-    - name: general commands
-      run: |
-        id
-        grep libvirt /etc/groups
-        exit 1
     - uses: mario-campos/emulate@main
       with:
         operating-system: ${{ matrix.os }}
     - run: |
-        git clone https://github.com/mario-campos/qemu-test.git
+        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
         cd qemu-test
         make hello
     - run: qemu-test/hello
