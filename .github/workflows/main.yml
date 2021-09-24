@@ -17,7 +17,6 @@ jobs:
         os: [ openbsd-6.9 ]
     steps:
     - run: |
-        ls -al "$(dirname "$BASH_SOURCE")"
         curl https://bot.whatismyipaddress.com
         ip addr
     - uses: mario-campos/emulate@main
