@@ -13,10 +13,9 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: general commands
-      env:
-        DISPLAY: ':0.0'
       run: |
         brew install qemu libvirt dbus
+        brew services start dbus
         sed -i .orig -e 's,#unix_sock_dir = "/usr/local/var/run/libvirt",unix_sock_dir = "/tmp",' /usr/local/etc/libvirt/libvirtd.conf
         /usr/local/opt/libvirt/sbin/libvirtd --verbose --config /usr/local/etc/libvirt/libvirtd.conf
         echo --- ls -l /tmp ---
