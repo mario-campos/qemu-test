@@ -15,7 +15,6 @@ jobs:
     - name: general commands
       run: |
         export DISPLAY=':0.0'
-        sudo xhost +
         brew install qemu libvirt dbus
         brew services start dbus
         sed -i .orig -e 's,#unix_sock_dir = "/usr/local/var/run/libvirt",unix_sock_dir = "/tmp",' /usr/local/etc/libvirt/libvirtd.conf
