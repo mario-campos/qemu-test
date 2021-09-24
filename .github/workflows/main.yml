@@ -16,7 +16,7 @@ jobs:
     - run: |
         brew install qemu libvirt
         sed -i .orig -e 's,#unix_sock_dir = "/usr/local/var/run/libvirt",unix_sock_dir = "/tmp",' /usr/local/etc/libvirt/libvirtd.conf
-        brew services start libvirt
+        /usr/local/opt/libvirt/sbin/libvirtd --verbose --config /usr/local/etc/libvirt/libvirtd.conf
         echo --- ls -l /tmp ---
         ls -al /tmp /usr/local/var/run/libvirt
         echo --- vagrant plugin ... ---
