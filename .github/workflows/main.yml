@@ -14,7 +14,7 @@ jobs:
     steps:
     - run: |
         brew install qemu libvirt
-        sed -i .orig -e 's/#unix_sock_dir = "/usr/local/var/run/libvirt"/unix_sock_dir = "/tmp"/' /usr/local/etc/libvirt/libvirtd.conf
+        sed -i .orig -e 's,#unix_sock_dir = "/usr/local/var/run/libvirt",unix_sock_dir = "/tmp",' /usr/local/etc/libvirt/libvirtd.conf
         brew services start libvirt
         echo --- ls -l /tmp ---
         ls -al /tmp /usr/local/var/run/libvirt
