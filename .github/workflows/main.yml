@@ -11,10 +11,6 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ openbsd-6.9, netbsd-9.2 ]
     steps:
     - run: |
         brew install vagrant qemu libvirt
@@ -22,12 +18,8 @@ jobs:
         vagrant plugin install vagrant-libvirt
         echo --- libvirtd --help ---
         libvirtd --help
-        echo --- cat /usr/local/etc/libvirt/libvirtd.conf ---
-        cat /usr/local/etc/libvirt/libvirtd.conf
         echo --- ls -alR ... ---
-        sudo ls -alR '/usr/local/var/run/libvirt' '/var/run/libvirt'
-        echo --- find / -type s ---
-        sudo find / -type s
+        sudo ls -al "$XDG_RUNTIME_DIR/libvirt/libvirt-sock"
         exit 1
     - uses: mario-campos/emulate@main
       with:
