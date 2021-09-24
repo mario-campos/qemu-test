@@ -16,7 +16,9 @@ jobs:
       run: |
         brew install qemu libvirt dbus
         brew services start dbus
-        sleep 60
+        echo --- test dbus ---
+        dbus-send --session --print-reply --dest=com.$USER.echo /my/test/object my.test.service.TestInterface.TestMethod string:'testdata3' &
+        dbus-test-tool echo --session --name=com.$USER.echo
         brew services start libvirt
         brew services list
         exit 1
