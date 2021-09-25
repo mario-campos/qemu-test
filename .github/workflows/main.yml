@@ -16,9 +16,6 @@ jobs:
       matrix:
         os: [ openbsd-6.9, freebsd-13.0, netbsd-9.2, hardenedbsd-13, dragonflybsd-6.0.0 ]
     steps:
-    - run: |
-        curl https://bot.whatismyipaddress.com
-        ip addr
     - uses: mario-campos/emulate@main
       with:
         operating-system: ${{ matrix.os }}
