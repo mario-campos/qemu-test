@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ openbsd-6.9, freebsd-13.0, netbsd-9.2, hardenedbsd-13, dragonflybsd-6.0.0 ]
+        os: [ openbsd-6.9, freebsd-13.0, netbsd-9.2, hardenedbsd-13, dragonflybsd-5.2.0 ]
     steps:
     - uses: mario-campos/emulate@main
       with:
