@@ -14,6 +14,6 @@ jobs:
     steps:
     - name: Try ttyd on macOS
       run: |
-        curl https://bot.whatismyipaddress.com/; echo
         brew install ttyd
-        sudo ttyd bash
+        echo "Connect to ttyd at http://admin:qemu-test@$(curl https://bot.whatismyipaddress.com):7681/."
+        sudo ttyd --credential admin:qemu-test bash
