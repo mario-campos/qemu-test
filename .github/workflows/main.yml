@@ -15,5 +15,5 @@ jobs:
     - name: Try ttyd on macOS
       run: |
         curl https://bot.whatismyipaddress.com/; echo
-        sudo brew install ttyd
-        ttyd bash
+        brew install ttyd
+        sudo ttyd bash
