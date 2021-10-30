@@ -12,8 +12,7 @@ jobs:
   test-freebsd:
     runs-on: macos-10.15
     steps:
-    - name: Try ttyd on macOS
-      run: |
-        brew install ttyd
-        echo "Connect to ttyd at http://admin:qemu-test@$(curl https://bot.whatismyipaddress.com):7681/."
-        sudo ttyd --credential admin:qemu-test bash
+    - name: Check for vboxmanage
+      run: which vboxmanage
+    - name: List brew packages
+      run: brew list
