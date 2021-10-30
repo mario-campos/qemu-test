@@ -12,8 +12,6 @@ jobs:
   test-freebsd:
     runs-on: macos-10.15
     steps:
-    - name: Install Vagrant
-      run: brew install vagrant
     - name: Bootstrap VM
       run: sudo nice -n 20 vagrant up
     - name: Sanity check
