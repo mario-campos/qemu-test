@@ -17,3 +17,7 @@ jobs:
       run: sudo nice -n 20 vagrant up
     - name: Sanity check
       run: sudo vagrant ssh -c 'uname -a'
+    - name: Print VM environment
+      run: sudo vagrant ssh -c env
+    - name: Print and send VM environment
+      run: sudo vagrant ssh -c env -- -o SendEnv
