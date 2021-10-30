@@ -20,4 +20,4 @@ jobs:
     - name: Print VM environment
       run: sudo vagrant ssh -c env
     - name: Print and send VM environment
-      run: sudo vagrant ssh -c env -- -o SendEnv
+      run: sudo vagrant ssh -c env -- -o SendEnv=GITHUB_REPOSITORY
