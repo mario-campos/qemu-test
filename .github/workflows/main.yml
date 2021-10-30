@@ -9,16 +9,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ openbsd-6.9, freebsd-12.2, netbsd-9.2, netbsd-8.2, dragonflybsd-5.2.0 ]
+  testfreebsd:
+    runs-on: macos-10.15
+    name: A job to run test FreeBSD
     steps:
-    - uses: mario-campos/emulate@main
+    - uses: actions/checkout@v2
+    - name: Test in FreeBSD
+      id: test
+      uses: vmactions/freebsd-vm@v0.1.5
       with:
-        operating-system: ${{ matrix.os }}
-    - run: |
-        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
-        cd qemu-test && make hello
+        usesh: true
+        prepare: pkg install -y curl
+        run: |
+          pwd
+          ls -lah
+          whoami
+          env
+          freebsd-version
+
+
+
+
