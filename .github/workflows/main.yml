@@ -21,7 +21,5 @@ jobs:
       run: |
         echo testing github.com bandwidth
         curl -o github.box -L https://github.com/mario-campos/qemu-test/releases/download/bandwidth-test/fbd109cd-1c36-424c-b463-3abc7726b342
-    - name: Compare box sizes
-      run: stat -s vagrantcloud.box github.box
     - name: Compare box
       run: cmp vagrantcloud.box github.box
