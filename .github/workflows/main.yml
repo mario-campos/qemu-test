@@ -9,17 +9,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-freebsd:
+  test-large-file-bandwidth:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Test Bandwidth of Vagrant Cloud
+    - name: Test Bandwidth of Vagrant Cloud (1.2 GB)
       run: |
-        echo testing vagrantcloud.com bandwidth
-        curl -o vagrantcloud.box -L https://app.vagrantup.com/scotch/boxes/box/versions/3.5/providers/virtualbox.box
-    - name: Test Bandwidth of GitHub
+        curl -L https://app.vagrantup.com/scotch/boxes/box/versions/3.5/providers/virtualbox.box
+    - name: Test Bandwidth of GitHub (1.2 GB)
       run: |
-        echo testing github.com bandwidth
-        curl -o github.box -L https://github.com/mario-campos/qemu-test/releases/download/bandwidth-test/fbd109cd-1c36-424c-b463-3abc7726b342
-    - name: Compare box
-      run: cmp vagrantcloud.box github.box
+        curl -L https://github.com/mario-campos/qemu-test/releases/download/bandwidth-test/large.box
+  test-medium-file-bandwidth:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test Bandwidth of Vagrant Cloud (466 MB)
+      run: |
+        curl -L https://app.vagrantup.com/bento/boxes/ubuntu-16.04/versions/202110.26.0/providers/hyperv.box
+    - name: Test Bandwidth of GitHub (466 MB)
+      run: |
+        curl -L https://github.com/mario-campos/qemu-test/releases/download/bandwidth-test/medium.box
+  test-small-file-bandwidth:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test Bandwidth of Vagrant Cloud (250 MB)
+      run: |
+        curl -L https://app.vagrantup.com/debian/boxes/jessie64/versions/8.11.0/providers/libvirt.box
+    - name: Test Bandwidth of GitHub (250 MB)
+      run: |
+        curl -L https://github.com/mario-campos/qemu-test/releases/download/bandwidth-test/small.box
