@@ -10,14 +10,10 @@ on:
 
 jobs:
   test-freebsd:
-    runs-on: macos-10.15
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Bootstrap VM
-      run: sudo nice -n 20 vagrant up
-    - name: Sanity check
-      run: sudo vagrant ssh -c 'uname -a'
-    - name: Print VM environment
-      run: sudo vagrant ssh -c env
-    - name: Print and send VM environment
-      run: sudo vagrant ssh -c env -- -o SendEnv=GITHUB_REPOSITORY
+    - name: Test Bandwidth of Vagrant Cloud
+      run: curl -L https://app.vagrantup.com/scotch/boxes/box/versions/3.5/providers/virtualbox.box >/dev/null
+    - name: Test Bandwidth of GitHub
+      run: curl -L https://github.com/mario-campos/qemu-test/releases/download/untagged-64f1cc25945c6701cb61/fbd109cd-1c36-424c-b463-3abc7726b342 >/dev/null
