@@ -15,7 +15,7 @@ jobs:
     - name: boot openbsd-7.0
       uses: mario-campos/emulate@emulate-images
       with:
-        os: openbsd-7.0
+        operating-system: openbsd-7.0
     - name: get disk size
       run: df -h
     - name: uname
