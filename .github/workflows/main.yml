@@ -16,5 +16,5 @@ jobs:
       run: vagrant init emulate/openbsd-7.0
     - name: vagrant up
       run: vagrant up
-    - name: vagrant ssh
-      run: vagrant ssh -c 'uname -a'
+    - name: get disk size
+      run: vagrant ssh -c 'df -h'
