@@ -12,9 +12,11 @@ jobs:
   test-emulate-openbsd:
     runs-on: macos-10.15
     steps:
-    - name: vagrant init
-      run: vagrant init emulate/openbsd-7.0
-    - name: vagrant up
-      run: vagrant up
+    - name: boot openbsd-7.0
+      uses: mario-campos/emulate@emulate-images
+      with:
+        os: openbsd-7.0
     - name: get disk size
-      run: vagrant ssh -c 'df -h'
+      run: df -h
+    - name: uname
+      run: uname -a
