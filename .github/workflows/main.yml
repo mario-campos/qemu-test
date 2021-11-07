@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-10.15
     steps:
     - name: boot openbsd-7.0
-      uses: mario-campos/emulate@emulate-images
+      uses: mario-campos/emulate@main
       with:
         operating-system: openbsd-7.0
     - name: get disk size
