@@ -13,14 +13,10 @@ jobs:
     runs-on: macos-10.15
     steps:
     - name: boot openbsd-7.0
-      uses: mario-campos/emulate@main
+      uses: mario-campos/emulate@v1
       with:
         operating-system: openbsd-latest
-    - name: uname
-      run: uname -a
-    - name: df
-      run: df -h
-    - name: free
-      run: |
-        pkg_add free
-        free
+    - name: Checkout repository
+      run: git clone --depth 1 https://github.com/NanXiao/free.git
+    - name: make
+      run: cd free; make
