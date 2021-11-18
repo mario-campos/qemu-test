@@ -20,3 +20,5 @@ jobs:
       run: git clone --depth 1 https://github.com/NanXiao/free.git
     - name: make
       run: cd free; make
+    - name: free
+      run: free/free
