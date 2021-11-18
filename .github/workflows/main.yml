@@ -9,10 +9,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-vagrantcloud:
-    runs-on: macos-10.15
-    steps:
-    - run: wget https://vagrantcloud.com/emulate/boxes/openbsd-7.0/versions/0.1.2/providers/virtualbox.box
   test-emulate-openbsd:
     runs-on: macos-10.15
     steps:
