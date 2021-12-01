@@ -12,17 +12,13 @@ jobs:
   test-emulate-openbsd:
     runs-on: macos-10.15
     steps:
-    - name: boot openbsd-7.0
-      uses: mario-campos/emulate@v1
+    - name: boot freebsd-13.0
+      uses: mario-campos/emulate@main
       with:
-        operating-system: openbsd-latest
-    - name: Checkout repository
-      run: git clone --depth 1 https://github.com/mario-campos/qemu-test.git
-    - name: Download CodeQL
-      run: |
-        ftp https://github.com/github/codeql-action/releases/download/codeql-bundle-20211115/codeql-bundle-linux64.tar.gz
-        tar -zxf codeql-bundle-linux64.tar.gz
-    - name: make
-      run: |
-        codeql/codeql database create --language cpp --source-root qemu-test /tmp/db
-        codeql/codeql database analyze --format csv --output results.csv /tmp/db cpp-code-scanning.qls
+        operating-system: freebsd-13.0
+    - name: hello world
+      run: echo hello world
+    - name: uname
+      run: uname -a
+    - name: df
+      run: df -h
