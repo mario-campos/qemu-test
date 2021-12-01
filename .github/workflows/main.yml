@@ -9,13 +9,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-emulate-openbsd:
+  test-emulate:
+    strategy:
+      matrix:
+        os: [ openbsd-latest, freebsd-latest ]
     runs-on: macos-10.15
     steps:
-    - name: boot freebsd-13.0
+    - name: boot bsd
       uses: mario-campos/emulate@main
       with:
-        operating-system: freebsd-13.0
+        operating-system: ${{ matrix.os }}
     - name: hello world
       run: echo hello world
     - name: uname
