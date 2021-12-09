@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-10.15
     steps:
     - name: pkg-config openssl
-      run: pkg-config --cflags --libs openssl libbsd
+      run: pkg-config --silence-errors --cflags --libs openssl libbsd
       env:
         PKG_CONFIG_PATH: /usr/local/Cellar/openssl@1.1/1.1.1l_1/lib/pkgconfig
     - name: pkg-config libbsd
