@@ -16,16 +16,8 @@ jobs:
     runs-on: macos-10.15
     steps:
     - name: pkg-config openssl
-      run: pkg-config --cflags --libs openssl
+      run: pkg-config --cflags --libs openssl libbsd
       env:
         PKG_CONFIG_PATH: /usr/local/Cellar/openssl@1.1/1.1.1l_1/lib/pkgconfig
-    - name: boot bsd
-      uses: mario-campos/emulate@v1
-      with:
-        operating-system: ${{ matrix.os }}
-    - name: hello world
-      run: echo hello world
-    - name: uname
-      run: uname -a
-    - name: df
-      run: df -h
+    - name: pkg-config libbsd
+      run: pkg-config --libs libbsd
