@@ -10,9 +10,6 @@ on:
 
 jobs:
   test-emulate:
-    strategy:
-      matrix:
-        os: [ openbsd-latest, freebsd-latest ]
     runs-on: macos-10.15
     steps:
     - name: pkg-config openssl
@@ -20,4 +17,4 @@ jobs:
       env:
         PKG_CONFIG_PATH: /usr/local/Cellar/openssl@1.1/1.1.1l_1/lib/pkgconfig
     - name: pkg-config libbsd
-      run: pkg-config --libs libbsd
+      run: pkg-config --silence-errors --libs libbsd
