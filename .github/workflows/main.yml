@@ -16,5 +16,6 @@ jobs:
       run: pkg-config --silence-errors --cflags --libs openssl libbsd
       env:
         PKG_CONFIG_PATH: /usr/local/Cellar/openssl@1.1/1.1.1l_1/lib/pkgconfig
+      continue-on-error: true
     - name: pkg-config libbsd
       run: pkg-config --silence-errors --libs libbsd
