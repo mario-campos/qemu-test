@@ -12,5 +12,5 @@ jobs:
   test-emulate:
     runs-on: ubuntu-latest
     steps:
-    - run: sudo apt install libbsd libbsd-dev
+    - run: sudo apt install libbsd0 libbsd-dev
     - run: ls -lR /usr/include
