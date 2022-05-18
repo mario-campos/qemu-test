@@ -14,3 +14,7 @@ jobs:
     steps:
     - run: sudo apt install libbsd0 libbsd-dev
     - run: ls -lR /usr/include
+    - run: gcc --version
+    - run: clang --version
+    - run: gcc --help
+    - run: clang --help
