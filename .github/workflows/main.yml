@@ -14,10 +14,11 @@ jobs:
     steps:
     - uses: mario-campos/emulate@errexit
       with:
-        operating-system: openbsd-latest
+        operating-system: netbsd-latest
     - run: uname
     - run: |
         git clone --depth 1 https://github.com/mario-campos/qemu-test.git
         cd qemu-test
-        clang hell.c
+        clang hello.c
         ./a.out
+    - run: free
