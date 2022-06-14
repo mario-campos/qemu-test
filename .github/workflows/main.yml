@@ -10,11 +10,14 @@ on:
 
 jobs:
   test-emulate:
-    runs-on: ubuntu-latest
+    runs-on: macos-10.15
     steps:
-    - run: sudo apt install libbsd0 libbsd-dev
-    - run: ls -lR /usr/include
-    - run: gcc --version
-    - run: clang --version
-    - run: gcc --help
-    - run: clang --help
+    - uses: mario-campos/emulate@v1
+      with:
+        operating-system: netbsd-9.2
+    - run: uname
+    - run: |
+        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
+        cd qemu-test
+        clang hello.c
+        ./a.out
