@@ -21,4 +21,4 @@ jobs:
         cd qemu-test
         clang hello.c
         ./a.out
-    - run: free
+    - run: vmstat
