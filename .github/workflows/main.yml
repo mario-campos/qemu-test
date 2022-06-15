@@ -12,7 +12,7 @@ jobs:
   test-emulate:
     runs-on: macos-10.15
     steps:
-    - uses: mario-campos/emulate@fix-resources
+    - uses: mario-campos/emulate@no-sudo-nice
       with:
         operating-system: netbsd-latest
     - run: uname
