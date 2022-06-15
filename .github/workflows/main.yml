@@ -9,12 +9,40 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-emulate:
+  test-netbsd:
     runs-on: macos-10.15
     steps:
-    - uses: mario-campos/emulate@no-sudo-nice
+    - uses: mario-campos/emulate@fix-resources
       with:
         operating-system: netbsd-latest
+    - run: uname
+    - run: |
+        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
+        cd qemu-test
+        clang hello.c
+        ./a.out
+    - run: vmstat
+
+  test-freebsd:
+    runs-on: macos-10.15
+    steps:
+    - uses: mario-campos/emulate@fix-resources
+      with:
+        operating-system: freebsd-latest
+    - run: uname
+    - run: |
+        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
+        cd qemu-test
+        clang hello.c
+        ./a.out
+    - run: vmstat
+
+  test-openbsd:
+    runs-on: macos-10.15
+    steps:
+    - uses: mario-campos/emulate@fix-resources
+      with:
+        operating-system: openbsd-latest
     - run: uname
     - run: |
         git clone --depth 1 https://github.com/mario-campos/qemu-test.git
