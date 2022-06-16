@@ -9,14 +9,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  show-disk-usage:
-    runs-on: macos-10.15
-    steps:
-    - run: sudo df -h
   test-netbsd:
     runs-on: macos-10.15
     steps:
-    - uses: mario-campos/emulate@main
+    - uses: mario-campos/emulate@less-env
       with:
         operating-system: netbsd-latest
     - run: uname
@@ -29,7 +25,7 @@ jobs:
   test-freebsd:
     runs-on: macos-10.15
     steps:
-    - uses: mario-campos/emulate@main
+    - uses: mario-campos/emulate@less-env
       with:
         operating-system: freebsd-latest
     - run: uname
@@ -42,7 +38,7 @@ jobs:
   test-openbsd:
     runs-on: macos-10.15
     steps:
-    - uses: mario-campos/emulate@main
+    - uses: mario-campos/emulate@less-env
       with:
         operating-system: openbsd-latest
     - run: uname
