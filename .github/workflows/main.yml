@@ -12,7 +12,7 @@ jobs:
   test-netbsd:
     runs-on: macos-10.15
     steps:
-    - uses: mario-campos/emulate@v1
+    - uses: mario-campos/emulate@no-sudo-nice
       with:
         operating-system: netbsd-latest
     - run: uname
@@ -25,7 +25,7 @@ jobs:
   test-freebsd:
     runs-on: macos-10.15
     steps:
-    - uses: mario-campos/emulate@v1
+    - uses: mario-campos/emulate@no-sudo-nice
       with:
         operating-system: freebsd-latest
     - run: uname
@@ -38,7 +38,7 @@ jobs:
   test-openbsd:
     runs-on: macos-10.15
     steps:
-    - uses: mario-campos/emulate@v1
+    - uses: mario-campos/emulate@no-sudo-nice
       with:
         operating-system: openbsd-latest
     - run: uname
