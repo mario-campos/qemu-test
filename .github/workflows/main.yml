@@ -9,6 +9,12 @@ on:
   workflow_dispatch:
 
 jobs:
+  discover:
+    runs-on: macos-10.15
+    steps:
+    - run: |
+        echo $GITHUB_PATH
+        echo $GITHUB_STEP_SUMMARY
   test-netbsd:
     runs-on: macos-10.15
     steps:
