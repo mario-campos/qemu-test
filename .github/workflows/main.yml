@@ -20,6 +20,7 @@ jobs:
     runs-on: macos-12
     steps:
     - run: brew list
+    - run: brew install vagrant virtualbox
 
   test-netbsd:
     if: false
