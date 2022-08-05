@@ -10,22 +10,10 @@ on:
 
 jobs:
 
-  test-macos-latest:
+  test-netbsd:
     runs-on: macos-11
     steps:
-    - run: brew list
     - run: brew install vagrant virtualbox
-  
-  test-macos-12:
-    runs-on: macos-12
-    steps:
-    - run: brew list
-    - run: brew install vagrant virtualbox
-
-  test-netbsd:
-    if: false
-    runs-on: macos-10.15
-    steps:
     - uses: mario-campos/emulate@main
       with:
         operating-system: netbsd-latest
@@ -37,9 +25,9 @@ jobs:
         ./a.out
 
   test-freebsd:
-    if: false
-    runs-on: macos-10.15
+    runs-on: macos-11
     steps:
+    - run: brew install vagrant virtualbox
     - uses: mario-campos/emulate@main
       with:
         operating-system: freebsd-latest
@@ -51,9 +39,9 @@ jobs:
         ./a.out
 
   test-openbsd:
-    if: false
-    runs-on: macos-10.15
+    runs-on: macos-11
     steps:
+    - run: brew install vagrant virtualbox
     - uses: mario-campos/emulate@main
       with:
         operating-system: openbsd-latest
