@@ -11,9 +11,10 @@ on:
 jobs:
 
   test-macos-latest:
-    runs-on: macos-latest
+    runs-on: macos-11
     steps:
     - run: brew list
+    - run: brew install vagrant virtualbox
   
   test-macos-12:
     runs-on: macos-12
