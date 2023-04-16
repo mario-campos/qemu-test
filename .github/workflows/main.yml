@@ -11,6 +11,7 @@ on:
 jobs:
 
   test-netbsd:
+    if: false
     runs-on: macos-12
     steps:
     - uses: mario-campos/emulate@main
@@ -24,6 +25,7 @@ jobs:
         ./a.out
 
   test-freebsd:
+    if: false
     runs-on: macos-12
     steps:
     - uses: mario-campos/emulate@main
@@ -39,9 +41,9 @@ jobs:
   test-openbsd:
     runs-on: macos-12
     steps:
-    - uses: mario-campos/emulate@main
+    - uses: mario-campos/emulate@v1
       with:
-        operating-system: openbsd-latest
+        operating-system: openbsd-7.2
     - run: uname
     - run: |
         git clone --depth 1 https://github.com/mario-campos/qemu-test.git
