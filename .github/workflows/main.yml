@@ -43,7 +43,8 @@ jobs:
     steps:
     - uses: mario-campos/emulate@main
       with:
-        operating-system: openbsd-7.2
+        operating-system: openbsd-7.3
+    - run: date
     - run: uname
     - run: |
         git clone --depth 1 https://github.com/mario-campos/qemu-test.git
