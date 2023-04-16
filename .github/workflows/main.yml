@@ -41,7 +41,7 @@ jobs:
   test-openbsd:
     runs-on: macos-12
     steps:
-    - uses: mario-campos/emulate@v1
+    - uses: mario-campos/emulate@main
       with:
         operating-system: openbsd-7.2
     - run: uname
