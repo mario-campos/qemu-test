@@ -11,42 +11,6 @@ on:
 jobs:
 
   test-netbsd:
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     steps:
-    - uses: mario-campos/emulate@main
-      with:
-        operating-system: netbsd-latest
-    - run: uname
-    - run: |
-        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
-        cd qemu-test
-        clang hello.c
-        ./a.out
-
-  test-freebsd:
-    if: false
-    runs-on: macos-12
-    steps:
-    - uses: mario-campos/emulate@main
-      with:
-        operating-system: freebsd-latest
-    - run: uname
-    - run: |
-        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
-        cd qemu-test
-        clang hello.c
-        ./a.out
-
-  test-openbsd:
-    runs-on: macos-12
-    steps:
-    - uses: mario-campos/emulate@v1
-      with:
-        operating-system: openbsd-7.3
-    - run: date
-    - run: uname
-    - run: |
-        git clone --depth 1 https://github.com/mario-campos/qemu-test.git
-        cd qemu-test
-        clang hello.c
-        ./a.out
+    - run: cat /proc/cpuinfo
