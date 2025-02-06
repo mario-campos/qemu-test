@@ -12,16 +12,14 @@ jobs:
   test-apt-virtualbox:
     runs-on: ubuntu-latest
     steps:
-    - name: Cache VirtualBox
-      id: cache-virtualbox
-      uses: actions/cache@v4
-      with:
-        path: /usr
-        key: ${{ runner.os }}-virtualbox
-        
     - name: Install VirtualBox
-      if: steps.cache-virtualbox.outputs.cache-hit != 'true'
       run: sudo apt update && sudo apt install -y virtualbox
-      
     - run: VBoxManage --version
-    - run: sudo dpkg -L virtualbox
+    - name: Download Vagrant
+      uses: Minionguyjpro/Download-File-Action@v1
+      with:
+        url: https://releases.hashicorp.com/vagrant/2.4.3/vagrant_2.4.3_linux_amd64.zip
+        path: ${{ runner.temp }}
+    - run: unzip /tmp/vagrant_2.4.3_linux_amd64.zip
+    - run: /tmp/vagrant --version
+          
