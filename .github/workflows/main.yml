@@ -14,4 +14,4 @@ jobs:
     steps:
     - run: sudo apt update && sudo apt install -y virtualbox
     - run: VBoxManage --version
-    - run: sudp dpkg -L virtualbox
+    - run: sudo dpkg -L virtualbox
