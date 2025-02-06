@@ -10,7 +10,14 @@ on:
 
 jobs:
 
-  test-netbsd:
+  test-apt-virtualbox:
     runs-on: ubuntu-latest
     steps:
-    - run: cat /proc/cpuinfo
+    - run: apt update && apt install -y virtualbox
+    - run: VBoxManage --version
+
+  test-deb-virtualbox:
+    runs-on: ubuntu-latest
+    steps:
+    - run: wget 'https://download.virtualbox.org/virtualbox/7.1.6/virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb'
+    - run: apt install -y './virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb'
