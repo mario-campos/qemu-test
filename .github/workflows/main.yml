@@ -9,16 +9,9 @@ on:
   workflow_dispatch:
 
 jobs:
-
-  # test-apt-virtualbox:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - run: sudo apt update && sudo apt install -y virtualbox
-  #   - run: VBoxManage --version
-
-  test-deb-virtualbox:
+  test-apt-virtualbox:
     runs-on: ubuntu-latest
     steps:
-    - run: sudo apt update && sudo apt install -y libqt6core6t64 libqt6help6 libqt6statemachine6 libqt6xml6
-    - run: wget 'https://download.virtualbox.org/virtualbox/7.1.6/virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb'
-    - run: sudo apt install -y './virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb'
+    - run: sudo apt update && sudo apt install -y virtualbox
+    - run: VBoxManage --version
+    - run: sudp dpkg -L virtualbox
