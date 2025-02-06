@@ -16,10 +16,7 @@ jobs:
       run: sudo apt update && sudo apt install -y virtualbox
     - run: VBoxManage --version
     - name: Download Vagrant
-      uses: Minionguyjpro/Download-File-Action@v1
-      with:
-        url: https://releases.hashicorp.com/vagrant/2.4.3/vagrant_2.4.3_linux_amd64.zip
-        path: ${{ runner.temp }}
-    - run: unzip /tmp/vagrant_2.4.3_linux_amd64.zip
-    - run: /tmp/vagrant --version
+      run: wget -O $RUNNER_TEMP/vagrant.zip https://releases.hashicorp.com/vagrant/2.4.3/vagrant_2.4.3_linux_amd64.zip
+    - run: unzip $RUNNER_TEMP/vagrant.zip
+    - run: $RUNNER_TEMP/vagrant --version
           
