@@ -17,6 +17,7 @@ jobs:
     - run: VBoxManage --version
     - name: Download Vagrant
       run: wget -O $RUNNER_TEMP/vagrant.zip https://releases.hashicorp.com/vagrant/2.4.3/vagrant_2.4.3_linux_amd64.zip
-    - run: unzip $RUNNER_TEMP/vagrant.zip
+    - run: unzip vagrant.zip
+      working-directory: ${{ runner.temp }}
     - run: $RUNNER_TEMP/vagrant --version
           
