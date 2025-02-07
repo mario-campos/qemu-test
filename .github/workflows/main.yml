@@ -22,3 +22,5 @@ jobs:
     - run: env
 
     - run: top -b
+
+    - run: echo hello world from openbsd
