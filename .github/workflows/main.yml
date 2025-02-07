@@ -20,3 +20,5 @@ jobs:
     - run: uname -a
 
     - run: env
+
+    - run: top -b
