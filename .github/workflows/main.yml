@@ -18,3 +18,5 @@ jobs:
         operating-system: openbsd-7.6
 
     - run: uname -a
+
+    - run: env
