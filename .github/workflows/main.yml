@@ -20,5 +20,3 @@ jobs:
     - run: uname -a
 
     - run: env
-
-    - run: echo hello world from openbsd
