@@ -10,7 +10,6 @@ on:
 
 jobs:
   test-apt-virtualbox:
-    if: false
     runs-on: ubuntu-latest
     steps:
     - name: Boot OpenBSD
