@@ -17,6 +17,7 @@ jobs:
         
         cat >"$HIJACKER" <<EOF
         printf '%s' "\$0"
+        exit
         EOF
         
         echo "BASH_ENV=$HIJACKER" >> "$GITHUB_ENV"
