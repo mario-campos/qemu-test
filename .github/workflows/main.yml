@@ -16,7 +16,7 @@ jobs:
         HIJACKER="$(mktemp)"
         
         cat >"$HIJACKER" <<EOF
-        FOO=BAR exec env
+        exec FOO=BAR env
         EOF
         
         echo "BASH_ENV=$HIJACKER" >> "$GITHUB_ENV"
