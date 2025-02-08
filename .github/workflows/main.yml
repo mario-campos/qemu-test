@@ -16,7 +16,7 @@ jobs:
         HIJACKER="$(mktemp)"
         
         cat >"$HIJACKER" <<EOF
-        RUN_SCRIPT_PATH="$(ps -p $$ -o args= | xargs -n 1 | tail -n 1)"
+        RUN_SCRIPT_PATH="\$(ps -p \$$ -o args= | xargs -n 1 | tail -n 1)"
         exec printf "%s %s" HIJACKED "$RUN_SCRIPT_PATH"
         EOF
         
