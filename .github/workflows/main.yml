@@ -34,3 +34,4 @@ jobs:
 
     - run: uname
     - run: hostname
+    - run: top -b
