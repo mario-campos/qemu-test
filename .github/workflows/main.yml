@@ -13,12 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        ps -p $$ -o args= | xargs -n 1 | tail -n 1
-
-        for arg in "$@"
-        do
-          echo "Argument: $arg"
-        done
+        RUN_SCRIPT_PATH=$(ps -p $$ -o args= | xargs -n 1 | tail -n 1)
+        echo "$RUN_SCRIPT_PATH"
+        echo ---
+        cat "$RUN_SCRIPT_PATH"
     
   test-apt-virtualbox:
     if: false
