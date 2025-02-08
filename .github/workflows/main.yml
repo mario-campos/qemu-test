@@ -9,6 +9,12 @@ on:
   workflow_dispatch:
 
 jobs:
+  vagrant:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        sudo apt install -yqq vagrant
+        file $(which vagrant)
   ps:
     if: false
     runs-on: ubuntu-latest
@@ -25,6 +31,7 @@ jobs:
     - run: echo normal command
     
   test-apt-virtualbox:
+    if: false
     runs-on: ubuntu-latest
     steps:
     - name: Boot OpenBSD
