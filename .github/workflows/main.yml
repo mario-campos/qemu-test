@@ -15,9 +15,8 @@ jobs:
     - run: |
         RUN_SCRIPT_PATH=$(ps -p $$ -o args= | xargs -n 1 | tail -n 1)
         echo "$RUN_SCRIPT_PATH"
-        echo ---
-        cat "$RUN_SCRIPT_PATH"
-        bash "$RUN_SCRIPT_PATH"
+        echo "\$0 = '$0'"
+        echo "\$1 = '$1'"
     
   test-apt-virtualbox:
     if: false
