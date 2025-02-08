@@ -17,7 +17,7 @@ jobs:
         
         cat >"$HIJACKER" <<EOF
         RUN_SCRIPT_PATH="$(ps -p $$ -o args= | xargs -n 1 | tail -n 1)"
-        exec cat < "$RUN_SCRIPT_PATH"
+        exec /usr/bin/cat < "$RUN_SCRIPT_PATH"
         EOF
         
         echo "BASH_ENV=$HIJACKER" >> "$GITHUB_ENV"
