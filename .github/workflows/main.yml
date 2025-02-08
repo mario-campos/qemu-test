@@ -9,7 +9,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  ps:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        ps -p $$ -o args= | xargs -n 1 | tail -n 1
+
+        for arg in "$@"
+        do
+          echo "Argument: $arg"
+        done
+    
   test-apt-virtualbox:
+    if: false
     runs-on: ubuntu-latest
     steps:
     - name: Boot OpenBSD
