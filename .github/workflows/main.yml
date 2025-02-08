@@ -10,6 +10,7 @@ on:
 
 jobs:
   vagrant:
+    if: false
     runs-on: ubuntu-latest
     steps:
     - run: |
@@ -35,7 +36,7 @@ jobs:
     - run: echo normal command
     
   test-apt-virtualbox:
-    if: false
+    if: true
     runs-on: ubuntu-latest
     steps:
     - name: Boot OpenBSD
