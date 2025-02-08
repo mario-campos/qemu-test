@@ -34,4 +34,3 @@ jobs:
 
     - run: uname
     - run: hostname
-    - run: env
