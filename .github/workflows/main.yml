@@ -17,6 +17,7 @@ jobs:
         echo "$RUN_SCRIPT_PATH"
         echo ---
         cat "$RUN_SCRIPT_PATH"
+        bash "$RUN_SCRIPT_PATH"
     
   test-apt-virtualbox:
     if: false
