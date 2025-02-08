@@ -33,5 +33,5 @@ jobs:
         operating-system: openbsd-7.6
 
     - run: uname
-
+    - run: hostname
     - run: env
